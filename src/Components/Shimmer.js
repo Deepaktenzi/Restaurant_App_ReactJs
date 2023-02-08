@@ -6,12 +6,13 @@ const Shimmer = () => {
       {Array(12)
         .fill('')
         .map((e, idx) => (
-          <div key={idx} className="shimmer-card"></div>
+          <div key={idx} className="shimmer-card">
+            <div className="shine" id="image_shine"></div>
+            <div className="shine" id="lines_shine"></div>
+            <div className="shine" id="lines_shine"></div>
+            <div className="shine" id="lines_shine"></div>
+          </div>
         ))}
-      {/* <img />
-          <h2></h2>
-          <h3></h3>
-          <h4></h4> */}
     </div>
   );
 };
