@@ -1,6 +1,8 @@
 const Footer = () => (
   <div className="footer">
-    <h4>Devloped by 💙</h4>
+    <p>
+      Made by <div className="heart"> 💙</div> Deepak
+    </p>
   </div>
 );
 
