@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import FavContext from '../utils/FavContext';
 
 const Header = () => {
   const [togleMenu, setToggleMenu] = useState(true);
+  const { card } = useContext(FavContext);
+  const cartItems = useSelector((store) => store.cart.items);
   function toggle(e) {
     document.getElementsByClassName('menu')[0].style.display = 'block';
     setToggleMenu(false);
@@ -53,25 +57,34 @@ const Header = () => {
             <Link to="/about">About Us</Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/cart">
+              <i className="fa-sharp fa-solid fa-cart-shopping mr-1"></i>Cart
+              {cartItems.length == 0 ? null : cartItems.length}
+            </Link>
           </li>
           <li>
-            <Link to="/profile">Cart</Link>
+            <Link to="/favourite">
+              <i className="fa-solid fa-heart-circle-check mr-1"></i>Favourite
+              <span className="favCount">
+                {Object.values(card).length != 0
+                  ? Object.values(card).length
+                  : null}
+              </span>
+            </Link>
           </li>
         </ul>
-        <span>
+
+        <span className="toggle">
           {togleMenu ? (
             <i
               onClick={toggle}
               className="fa fa-bars fa-2x"
-              name="bars"
               aria-hidden="true"
             ></i>
           ) : (
             <i
               onClick={toggleClose}
               className="fa fa-close fa-2x"
-              name="bars"
               aria-hidden="true"
             ></i>
           )}

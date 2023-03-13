@@ -1,5 +1,6 @@
 import { IMG_CDN } from '../const';
-
+import { useContext, useState } from 'react';
+import FavContext from '../utils/FavContext';
 const ResturantCard = ({
   name,
   cuisines,
@@ -8,10 +9,52 @@ const ResturantCard = ({
   deliveryTime,
   costForTwoString,
   aggregatedDiscountInfo,
+  id,
 }) => {
+  const { card, setCard } = useContext(FavContext);
+  const [show, setShow] = useState(true);
+
+  const favourite = (e) => {
+    e.preventDefault();
+    if (show) {
+      setShow(false);
+      setCard([
+        ...card,
+        {
+          name: name,
+          id: id,
+          cuisines: cuisines,
+          cloudinaryImageId: cloudinaryImageId,
+          avgRating: avgRating,
+          deliveryTime: deliveryTime,
+          costForTwoString: costForTwoString,
+          aggregatedDiscountInfo: aggregatedDiscountInfo,
+        },
+      ]);
+    } else {
+      setShow(true);
+      const filterList = Object.values(card).filter((val) => val.name != name);
+      setCard(filterList);
+    }
+  };
+
   return (
     <div className="card">
-      <img src={IMG_CDN + cloudinaryImageId} />
+      <span>
+        {show ? (
+          <i
+            className="heart_icon fa-regular fa-heart"
+            onClick={(e) => favourite(e)}
+          ></i>
+        ) : (
+          <i
+            className="heart_icon fa-solid fa-heart"
+            onClick={(e) => favourite(e)}
+          ></i>
+        )}
+      </span>
+      <img loading="lazy" src={IMG_CDN + cloudinaryImageId} />
+
       <div className="card_details">
         <div className="card_name ">{name}</div>
         <div className="card_tag">{cuisines.join(', ')}</div>
@@ -20,7 +63,9 @@ const ResturantCard = ({
         <div
           className="card_ratting"
           style={
-            avgRating >= 4
+            avgRating === '--'
+              ? { backgroundColor: 'grey' }
+              : avgRating >= 4
               ? { backgroundColor: '#48c479' }
               : { backgroundColor: '#db7c38' }
           }

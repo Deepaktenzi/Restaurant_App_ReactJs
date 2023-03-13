@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import FavContext from '../utils/FavContext';
 const Section = ({ title, desc, isVisible, setIsVisible }) => {
   return (
     <div className="m-2 p-3 border-2 border-black">
@@ -21,6 +22,8 @@ const Section = ({ title, desc, isVisible, setIsVisible }) => {
 
 const About = () => {
   const [visibleSection, setVisibleSection] = useState('');
+  const { card } = useContext(FavContext);
+  console.log(card);
   return (
     <>
       <Section

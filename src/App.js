@@ -1,25 +1,34 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Body from './Components/Body';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Error from './Components/Error';
-import Contact from './Components/Contact';
 import ResturantMenu from './Components/ResturantMenu';
 import Profile from './Components/Profile';
 import ProfileFunc from './Components/ProfileFunc';
 import { lazy } from 'react';
+import FavContext from './utils/FavContext';
+import FavouriteList from './Components/FavouriteList';
+import { Provider } from 'react-redux';
+import store from './utils/store';
+import Checkout from './Components/Checkout';
 
 const About = lazy(() => import('./Components/About'));
 
-const AppLayout = () => (
-  <>
-    <Header />
-    <Outlet />
-    <Footer />
-  </>
-);
+const AppLayout = () => {
+  const [card, setCard] = useState([]);
+  return (
+    <Provider store={store}>
+      <FavContext.Provider value={{ card, setCard }}>
+        <Header />
+        <Outlet />
+      </FavContext.Provider>
+      <Footer />
+    </Provider>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -40,16 +49,16 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: '/contact',
-        element: <Contact />,
-      },
-      {
         path: '/resturant/:resId',
         element: <ResturantMenu />,
       },
       {
-        path: '/profile',
-        element: <ProfileFunc />,
+        path: '/cart',
+        element: <Checkout />,
+      },
+      {
+        path: '/favourite',
+        element: <FavouriteList />,
       },
     ],
   },

@@ -17,8 +17,8 @@ export function deliveryTimeSort(restaurants) {
     return 0;
   }
 
-  const ratingData = restaurants.sort(compare);
-  return ratingData;
+  const timeSort = restaurants.sort(compare);
+  return timeSort;
 }
 
 export function ratingSort(resturants) {
@@ -33,7 +33,6 @@ export function ratingSort(resturants) {
     if (isNaN(y)) {
       y = 0;
     }
-    console.log(x);
     if (x > y) {
       return -1;
     }

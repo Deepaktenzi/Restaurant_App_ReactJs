@@ -12,7 +12,7 @@ const FavouriteList = () => {
       {card.map((data) => {
         return (
           <Link to={'/resturant/' + data.id}>
-            <FavCard {...data} />
+            <FavCard {...data} key={data.id} />
           </Link>
         );
       })}
