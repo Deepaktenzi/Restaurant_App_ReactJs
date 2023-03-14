@@ -50,8 +50,10 @@ const Header = () => {
 
         <ul className="menu">
           <li>
-            <i className="fa-solid fa-house mr-1.5"></i>
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <i className="fa-solid fa-house mr-1.5"></i>
+              <span>Home</span>
+            </Link>
           </li>
           <li>
             <Link to="/about">About Us</Link>
