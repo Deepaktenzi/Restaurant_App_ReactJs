@@ -1,10 +1,16 @@
 import { IMG_CDN } from '../const';
+import Default_Img from '../assets/images/default-restaurant.webp';
 const MenuHeader = ({ restaurant }) => {
   return (
     <>
       <div className="menu_nav">
         <div className="menu_header">
-          <img src={IMG_CDN + restaurant.cloudinaryImageId} />
+          {restaurant.cloudinaryImageId ? (
+            <img src={IMG_CDN + restaurant.cloudinaryImageId} />
+          ) : (
+            <img loading="lazy" src={Default_Img} />
+          )}
+
           <div className="menu_details">
             <span className="menu_heading">{restaurant.name}</span>
             <span className="menu_desc text-[#c9cace]">
@@ -36,8 +42,12 @@ const MenuHeader = ({ restaurant }) => {
           </div>
           <div className="menu_offer">
             <h1>OFFER</h1>
-            <span>50% Off on all orders</span>
-            <span>FREE CELIVERY</span>
+            <div className="flex gap-2 items-center">
+              <i className="fa-solid fa-tag"></i> 50% Off on all orders
+            </div>
+            <div className="flex gap-2 items-center">
+              <i className="fa-solid fa-tag"></i>FREE CELIVERY
+            </div>
           </div>
         </div>
       </div>

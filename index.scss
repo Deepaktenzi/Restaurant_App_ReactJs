@@ -131,6 +131,10 @@ body {
   transition-duration: 0.5s;
   position: relative;
 
+  img {
+    border-radius: 5px;
+  }
+
   .heart_icon {
     position: absolute;
     top: 20px;
@@ -200,7 +204,7 @@ body {
   justify-content: center;
   align-items: center;
   color: #fff;
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-size: 20px;
   .heart {
     animation: beat 1s infinite step-start;
@@ -342,7 +346,6 @@ body {
 
 .menu_nav {
   width: 100%;
-  height: 14rem;
   background-color: black;
   display: flex;
   align-content: center;
@@ -354,14 +357,18 @@ body {
     width: 80%;
     color: white;
     justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    gap: 2rem;
 
     img {
       width: 20%;
-      margin-right: 3rem;
+      flex: 1 1;
     }
     .menu_details {
       width: 40%;
-      // background-color: red;
+      flex: 2 2 400px;
+
       .menu_heading {
         font-size: 2rem;
         letter-spacing: 2px;
@@ -390,8 +397,7 @@ body {
     }
     .menu_offer {
       margin-left: 2rem;
-      height: 80%;
-      width: auto;
+      flex: 1 1 200px;
       border: 1px solid white;
       display: flex;
       justify-content: center;
@@ -400,6 +406,7 @@ body {
       position: relative;
       flex-wrap: wrap;
       align-content: center;
+      gap: 10px;
 
       h1 {
         background-color: black;
@@ -453,15 +460,21 @@ body {
     padding-right: 1rem;
     width: 100%;
     margin-bottom: 1rem;
+    padding-top: 1rem;
 
     .category_heading {
-      color: #3e4152;
+      background: #050505;
+      color: white;
+      padding-left: 10px;
       font-weight: 800;
       font-size: 1.3rem;
       display: block;
     }
     .category_count {
       font-size: 13px;
+      background: orange;
+      color: white;
+      padding-left: 10px;
     }
     .menu_card {
       display: flex;

@@ -48,8 +48,8 @@ const ResturantMenu = () => {
             );
             return (
               <div className="menu_section" id={cat.split(' ')[0]} key={idx}>
-                <span className="category_heading ">{cat}</span>
-                <span className="category_count">{catFilter.length} ITEMS</span>
+                <div className="category_heading ">{cat}</div>
+                <div className="category_count">{catFilter.length} ITEMS</div>
                 {catFilter.map((filteredMenu) => {
                   return (
                     <MenuItemCard

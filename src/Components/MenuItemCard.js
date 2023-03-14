@@ -1,5 +1,6 @@
 import { IMG_CDN } from '../const';
 import MenuAddRemoveItem from './MenuAddRemoveItem';
+import Default_Img from '../assets/images/default-restaurant.webp';
 const MenuItemCard = ({ items, restImg }) => {
   return (
     <div className="menu_card">
@@ -13,8 +14,10 @@ const MenuItemCard = ({ items, restImg }) => {
       <div className="menu_img">
         {items.cloudinaryImageId ? (
           <img src={IMG_CDN + items.cloudinaryImageId} alt="preview" />
-        ) : (
+        ) : restImg ? (
           <img src={IMG_CDN + restImg} alt="preview" />
+        ) : (
+          <img loading="lazy" src={Default_Img} />
         )}
 
         <MenuAddRemoveItem items={items} />

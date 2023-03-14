@@ -1,6 +1,7 @@
 import { IMG_CDN } from '../const';
 import { useContext, useState } from 'react';
 import FavContext from '../utils/FavContext';
+import Default_Img from '../assets/images/default-restaurant.webp';
 const ResturantCard = ({
   name,
   cuisines,
@@ -53,7 +54,11 @@ const ResturantCard = ({
           ></i>
         )}
       </span>
-      <img loading="lazy" src={IMG_CDN + cloudinaryImageId} />
+      {cloudinaryImageId ? (
+        <img loading="lazy" src={IMG_CDN + cloudinaryImageId} />
+      ) : (
+        <img loading="lazy" src={Default_Img} />
+      )}
 
       <div className="card_details">
         <div className="card_name ">{name}</div>
