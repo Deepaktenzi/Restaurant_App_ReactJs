@@ -36,10 +36,9 @@ const CartItems = () => {
       </div>
       <div className="menu_checkout_btn">
         <p>Extra charges may apply</p>
-
-        <button>
-          <Link to="/cart">Checkout</Link>
-        </button>
+        <Link to="/cart">
+          <button>Checkout</button>
+        </Link>
       </div>
     </>
   );

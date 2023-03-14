@@ -60,6 +60,7 @@ const Body = () => {
           name="search"
           className="search_bar"
           pattern="[A-Za-z]*"
+          autoComplete="off"
           onChange={(e) => {
             const data = filterData(e.target.value, allRestaurants);
             setFilterRestaurants(data);
