@@ -201,7 +201,6 @@ body {
   height: 80px;
   background-color: black;
   display: flex;
-  justify-content: center;
   align-items: center;
   color: #fff;
   margin-top: 2rem;
@@ -222,6 +221,17 @@ body {
       }
       100% {
         transform: scale(1);
+      }
+    }
+  }
+  .icons {
+    margin-right: 2rem;
+    display: flex;
+    gap: 10px;
+    svg {
+      &:hover {
+        display: block;
+        fill: red;
       }
     }
   }
