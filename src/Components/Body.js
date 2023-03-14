@@ -11,10 +11,13 @@ import {
   HighToLowSort,
 } from '../utils/helper';
 import useOnline from '../utils/useOnline';
+import Nodatafound from './Nodatfound';
+import Coursels from './Coursels';
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filterRestaurants, setFilterRestaurants] = useState([]);
+  const [carousels, setCarousels] = useState([]);
 
   useEffect(() => {
     getResturantData();
@@ -25,6 +28,7 @@ const Body = () => {
       const json = await data.json();
       setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
       setFilterRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+      setCarousels(json?.data?.cards[0]?.data?.data?.cards);
     } catch (e) {
       console.log(e);
     }
@@ -42,6 +46,14 @@ const Body = () => {
 
   return (
     <>
+      <div className="coursels_container">
+        {carousels.length == 0
+          ? null
+          : carousels.slice(0, 4).map((coursel) => {
+              return <Coursels {...coursel.data} />;
+            })}
+      </div>
+
       <div className="search-container">
         <input
           type="text"
@@ -101,7 +113,7 @@ const Body = () => {
 
           <div className="resturant-list ">
             {filterRestaurants?.length == 0 ? (
-              <h1>No Data Found</h1>
+              <Nodatafound />
             ) : (
               filterRestaurants?.map((restaurant) => {
                 return (

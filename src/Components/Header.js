@@ -59,12 +59,15 @@ const Header = () => {
           <li>
             <Link to="/cart">
               <i className="fa-sharp fa-solid fa-cart-shopping mr-1"></i>Cart
-              {cartItems.length == 0 ? null : cartItems.length}
+              <span className="favCount">
+                {cartItems.length == 0 ? null : cartItems.length}
+              </span>
             </Link>
           </li>
           <li>
             <Link to="/favourite">
-              <i className="fa-solid fa-heart-circle-check mr-1"></i>Favourite
+              <i className="fa-solid fa-heart-circle-check mr-1 "></i>
+              Favourite
               <span className="favCount">
                 {Object.values(card).length != 0
                   ? Object.values(card).length

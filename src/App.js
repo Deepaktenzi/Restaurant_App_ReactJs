@@ -6,8 +6,6 @@ import Footer from './Components/Footer';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Error from './Components/Error';
 import ResturantMenu from './Components/ResturantMenu';
-import Profile from './Components/Profile';
-import ProfileFunc from './Components/ProfileFunc';
 import { lazy } from 'react';
 import FavContext from './utils/FavContext';
 import FavouriteList from './Components/FavouriteList';

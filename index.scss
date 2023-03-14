@@ -11,7 +11,7 @@ body {
 
 .header {
   width: 100%;
-  border: 1px red solid;
+  box-shadow: 0 0 6px #ddd;
   display: flex;
   justify-content: center;
 }
@@ -33,6 +33,13 @@ body {
     display: flex;
     li {
       padding: 2rem;
+      color: #3d4152;
+      font-size: 16px;
+      font-weight: 500;
+      &:hover {
+        transform: scale(1.1);
+        color: #fc8019;
+      }
     }
 
     @media (max-width: 600px) {
@@ -74,6 +81,8 @@ body {
     padding-top: 20px;
     background-color: white;
     z-index: 1;
+    box-shadow: 0 1 0 0 #ddd;
+    flex-wrap: wrap;
   }
   .resturant_count {
     font-size: 2rem;
@@ -101,6 +110,7 @@ body {
   .resturant-list {
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
     width: 80%;
     border-top: 1 solid #e9e9eb;
     padding-top: 2rem;
@@ -108,7 +118,11 @@ body {
     column-gap: 2rem;
     justify-content: flex-start;
     align-content: flex-start;
-    flex-grow: 4;
+
+    &:empty {
+      height: 90vh;
+      content: 'Error no Data';
+    }
   }
 }
 .card {
@@ -317,7 +331,7 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 25px;
-  background: black;
+  background: #fc8019;
   color: white;
   text-align: center;
 
@@ -628,4 +642,18 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+}
+
+.coursels_container {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: black;
+  padding: 3rem;
+}
+
+.carousel_card {
+  width: 300px;
 }
