@@ -331,7 +331,7 @@ body {
   flex-wrap: wrap;
   margin-left: 5rem;
   width: 80%;
-  height: 80vh;
+  height: auto;
   padding-top: 2rem;
   row-gap: 3rem;
   column-gap: 2rem;
@@ -673,11 +673,26 @@ body {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  flex-wrap: wrap;
   background-color: black;
   padding: 3rem;
-}
+  height: auto;
 
-.carousel_card {
-  width: 300px;
+  .coursels_main {
+    display: flex;
+    justify-content: flex-start;
+    overflow: auto;
+    gap: 3rem;
+
+    img {
+      height: 300px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel_card {
+      width: 300px;
+    }
+  }
 }

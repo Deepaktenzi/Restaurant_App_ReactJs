@@ -47,11 +47,13 @@ const Body = () => {
   return (
     <>
       <div className="coursels_container">
-        {carousels.length == 0
-          ? null
-          : carousels.slice(0, 4).map((coursel) => {
-              return <Coursels {...coursel.data} />;
-            })}
+        <div className="coursels_main">
+          {carousels.length == 0
+            ? null
+            : carousels.slice(0, 4).map((coursel) => {
+                return <Coursels {...coursel.data} />;
+              })}
+        </div>
       </div>
 
       <div className="search-container">
