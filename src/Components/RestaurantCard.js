@@ -84,10 +84,14 @@ const ResturantCard = ({
         <div className="card_cost">{costForTwoString}</div>
       </div>
       <div className="card_offer ">
-        <i className="fa-solid fa-tag"></i>
-        <span className="ml-2">
-          {aggregatedDiscountInfo.shortDescriptionList[0].meta}
-        </span>
+        {aggregatedDiscountInfo?.shortDescriptionList[0]?.meta ? (
+          <>
+            <i className="fa-solid fa-tag"></i>
+            <span className="ml-2">
+              {aggregatedDiscountInfo?.shortDescriptionList[0]?.meta}
+            </span>
+          </>
+        ) : null}
       </div>
     </div>
   );

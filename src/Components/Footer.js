@@ -7,11 +7,11 @@ const Footer = () => (
       <a href="https://github.com/Deepaktenzi" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-brand-github"
+          className="icon icon-tabler icon-tabler-brand-github"
           width="40"
           height="40"
           viewBox="0 0 24 24"
-          stroke-width="2"
+          strokeWidth="2"
           stroke="#ffffff"
           fill="none"
           stroke-linecap="round"
@@ -24,11 +24,11 @@ const Footer = () => (
       <a href="https://www.linkedin.com/in/deepak10zi/" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-brand-linkedin"
+          className="icon icon-tabler icon-tabler-brand-linkedin"
           width="40"
           height="40"
           viewBox="0 0 24 24"
-          stroke-width="2"
+          strokeWidth="2"
           stroke="#ffffff"
           fill="none"
           stroke-linecap="round"
