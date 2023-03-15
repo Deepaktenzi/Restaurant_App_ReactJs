@@ -48,6 +48,22 @@ const Header = () => {
           </svg>
         </Link>
 
+        <span className="toggle">
+          {togleMenu ? (
+            <i
+              onClick={toggle}
+              className="fa fa-bars fa-2x"
+              aria-hidden="true"
+            ></i>
+          ) : (
+            <i
+              onClick={toggleClose}
+              className="fa fa-close fa-2x"
+              aria-hidden="true"
+            ></i>
+          )}
+        </span>
+
         <ul className="menu">
           <li>
             <Link to="/">
@@ -78,22 +94,6 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-
-        <span className="toggle">
-          {togleMenu ? (
-            <i
-              onClick={toggle}
-              className="fa fa-bars fa-2x"
-              aria-hidden="true"
-            ></i>
-          ) : (
-            <i
-              onClick={toggleClose}
-              className="fa fa-close fa-2x"
-              aria-hidden="true"
-            ></i>
-          )}
-        </span>
       </nav>
     </header>
   );

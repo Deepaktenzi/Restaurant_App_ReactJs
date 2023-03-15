@@ -16,10 +16,11 @@ body {
   justify-content: center;
 }
 .navbar {
-  height: 80px;
+  height: auto;
   width: 100%;
   display: flex;
   padding: 5px;
+  flex-wrap: wrap;
   justify-content: space-around;
   border: 1px black solid;
   align-items: center;
@@ -40,18 +41,21 @@ body {
         transform: scale(1.1);
         color: #fc8019;
       }
+
+      @media (max-width: 600px) {
+        box-shadow: 1px 1px 1px 1px #e9e5e5;
+      }
     }
 
     @media (max-width: 600px) {
+      margin-top: 10px;
       flex-direction: column;
-      position: absolute;
-      top: 9%;
-      z-index: 2;
       background-color: white;
-      width: 100%;
       text-align: center;
-      border: 1px solid grey;
+      flex-grow: 1;
+      flex-basis: 100%;
       display: none;
+      transition: 0.3ms ease-in;
     }
   }
 
