@@ -12,8 +12,8 @@ const MenuItemCard = ({ items, restImg }) => {
         <p className="text-xs text-[#5c5959] mt-1">{items.description}</p>
       </div>
       <div className="menu_img">
-        {items.cloudinaryImageId ? (
-          <img src={IMG_CDN + items.cloudinaryImageId} alt="preview" />
+        {items.imageId ? (
+          <img src={IMG_CDN + items.imageId} alt="preview" />
         ) : restImg ? (
           <img src={IMG_CDN + restImg} alt="preview" />
         ) : (

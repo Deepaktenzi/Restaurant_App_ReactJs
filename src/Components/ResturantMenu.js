@@ -1,19 +1,15 @@
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { IMG_CDN } from '../const';
 import Shimmer from './Shimmer';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
 import MenuHeader from './MenuHeader';
 import MenuItemCard from './MenuItemCard';
-import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import CartItems from './CartItems';
 import EmptyCart from './EmptyCart';
 
 const ResturantMenu = () => {
   const { resId } = useParams();
-  const [restaurant, category] = useRestaurantMenu(resId);
+  const [restaurantItems, category, resturantInfo] = useRestaurantMenu(resId);
 
   const cartItems = useSelector((store) => store.cart.items);
   const scrollToSection = (e, val) => {
@@ -22,11 +18,11 @@ const ResturantMenu = () => {
     element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  return !restaurant ? (
+  return !restaurantItems ? (
     <Shimmer />
   ) : (
     <>
-      <MenuHeader restaurant={restaurant} />
+      <MenuHeader restaurant={resturantInfo} />
       <div className="menu_container">
         <div className="menu_category">
           {category.map((val, idx) => {
@@ -43,8 +39,8 @@ const ResturantMenu = () => {
 
         <div className="menu_item">
           {category.map((cat, idx) => {
-            const catFilter = Object.values(restaurant.menu.items).filter(
-              (val) => val.category == cat
+            const catFilter = restaurantItems.filter(
+              (val) => val.card.info.category == cat
             );
             return (
               <div className="menu_section" id={cat.split(' ')[0]} key={idx}>
@@ -53,8 +49,8 @@ const ResturantMenu = () => {
                 {catFilter.map((filteredMenu) => {
                   return (
                     <MenuItemCard
-                      items={filteredMenu}
-                      restImg={restaurant.cloudinaryImageId}
+                      items={filteredMenu.card.info}
+                      restImg={restaurantItems.imageId}
                       key={filteredMenu.id}
                     />
                   );
