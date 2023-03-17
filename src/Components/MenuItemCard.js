@@ -7,7 +7,10 @@ const MenuItemCard = ({ items, restImg }) => {
       <div className="menu_info">
         <span className="font-[400]">{items.name}</span>
         <p className="text-sm font-[400]">
-          ₹ {items.price > 0 ? items.price / 100 : items.defaultPrice / 100}
+          ₹{' '}
+          {Math.floor(
+            items.price > 0 ? items.price / 100 : items.defaultPrice / 100
+          )}
         </p>
         <p className="text-xs text-[#5c5959] mt-1">{items.description}</p>
       </div>

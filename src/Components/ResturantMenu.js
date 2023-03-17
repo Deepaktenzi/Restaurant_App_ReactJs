@@ -11,6 +11,8 @@ const ResturantMenu = () => {
   const { resId } = useParams();
   const [restaurantItems, category, resturantInfo] = useRestaurantMenu(resId);
 
+  const filteredItems = restaurantItems?.filter((val) => val.card.card.title);
+
   const cartItems = useSelector((store) => store.cart.items);
   const scrollToSection = (e, val) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ const ResturantMenu = () => {
     element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  return !restaurantItems ? (
+  return !filteredItems ? (
     <Shimmer />
   ) : (
     <>
@@ -38,15 +40,18 @@ const ResturantMenu = () => {
         </div>
 
         <div className="menu_item">
-          {category.map((cat, idx) => {
-            const catFilter = restaurantItems.filter(
-              (val) => val.card.info.category == cat
-            );
+          {filteredItems.map((cat, idx) => {
             return (
-              <div className="menu_section" id={cat.split(' ')[0]} key={idx}>
-                <div className="category_heading ">{cat}</div>
-                <div className="category_count">{catFilter.length} ITEMS</div>
-                {catFilter.map((filteredMenu) => {
+              <div
+                className="menu_section"
+                id={cat.card.card.title.split(' ')[0]}
+                key={idx}
+              >
+                <div className="category_heading ">{cat.card.card.title}</div>
+                <div className="category_count">
+                  {cat.card.card.itemCards.length} ITEMS
+                </div>
+                {cat.card.card.itemCards.map((filteredMenu) => {
                   return (
                     <MenuItemCard
                       items={filteredMenu.card.info}
