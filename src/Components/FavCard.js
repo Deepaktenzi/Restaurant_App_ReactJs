@@ -17,7 +17,7 @@ const FavCard = ({
   const favourite = (e) => {
     e.preventDefault();
     if (fav) {
-      const filterList = Object.values(card).filter((val) => val.name != name);
+      const filterList = card.filter((val) => val.name != name);
       setCard([...filterList]);
     }
   };

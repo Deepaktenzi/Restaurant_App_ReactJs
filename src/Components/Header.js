@@ -7,6 +7,7 @@ const Header = () => {
   const [togleMenu, setToggleMenu] = useState(true);
   const { card } = useContext(FavContext);
   const cartItems = useSelector((store) => store.cart.items);
+  console.log(card);
   function toggle(e) {
     document.getElementsByClassName('menu')[0].style.display = 'block';
     setToggleMenu(false);
@@ -87,9 +88,7 @@ const Header = () => {
               <i className="fa-solid fa-heart-circle-check mr-1 "></i>
               Favourite
               <span className="favCount">
-                {Object.values(card).length != 0
-                  ? Object.values(card).length
-                  : null}
+                {card.length != 0 ? card.length : null}
               </span>
             </Link>
           </li>
