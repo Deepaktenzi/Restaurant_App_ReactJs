@@ -41,6 +41,7 @@ const ResturantMenu = () => {
 
         <div className="menu_item">
           {filteredItems.map((cat, idx) => {
+            console.log(cat);
             return (
               <div
                 className="menu_section"
@@ -49,9 +50,9 @@ const ResturantMenu = () => {
               >
                 <div className="category_heading ">{cat.card.card.title}</div>
                 <div className="category_count">
-                  {cat.card.card.itemCards.length} ITEMS
+                  {cat?.card?.card?.itemCards?.length} ITEMS
                 </div>
-                {cat.card.card.itemCards.map((filteredMenu) => {
+                {cat?.card?.card?.itemCards?.map((filteredMenu) => {
                   return (
                     <MenuItemCard
                       items={filteredMenu.card.info}
