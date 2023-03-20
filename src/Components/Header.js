@@ -7,7 +7,6 @@ const Header = () => {
   const [togleMenu, setToggleMenu] = useState(true);
   const { card } = useContext(FavContext);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(card);
   function toggle(e) {
     document.getElementsByClassName('menu')[0].style.display = 'block';
     setToggleMenu(false);

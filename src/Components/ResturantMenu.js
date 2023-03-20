@@ -41,7 +41,6 @@ const ResturantMenu = () => {
 
         <div className="menu_item">
           {filteredItems.map((cat, idx) => {
-            console.log(cat);
             return (
               <div
                 className="menu_section"
