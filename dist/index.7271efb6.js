@@ -26945,7 +26945,7 @@ const FETCH_MENU_URL = "https://api-94b2.onrender.com/api/menu?id=";
 exports.FETCH_MENU_URL = FETCH_MENU_URL;
 const FETCH_RESTAURANTS_URL = "https://api-94b2.onrender.com/api/restaurants?lat=30.322232&lng=78.085605";
 exports.FETCH_RESTAURANTS_URL = FETCH_RESTAURANTS_URL;
-const RESTAURANT_CAROUSELS_API = "https://api-94b2.onrender.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_520,h_520/";
+const RESTAURANT_CAROUSELS_API = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_520,h_520/";
 exports.RESTAURANT_CAROUSELS_API = RESTAURANT_CAROUSELS_API;
 
 },{}],"bmTCy":[function(require,module,exports) {
