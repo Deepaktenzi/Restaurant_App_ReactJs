@@ -26,6 +26,7 @@ const Body = () => {
     try {
       const data = await fetch(FETCH_RESTAURANTS_URL);
       const json = await data.json();
+
       setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
       setFilterRestaurants(json?.data?.cards[2]?.data?.data?.cards);
       setCarousels(json?.data?.cards[0]?.data?.data?.cards);

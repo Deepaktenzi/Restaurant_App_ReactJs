@@ -17,6 +17,7 @@ const About = lazy(() => import('./Components/About'));
 
 const AppLayout = () => {
   const [card, setCard] = useState([]);
+
   return (
     <Provider store={store}>
       <FavContext.Provider value={{ card, setCard }}>

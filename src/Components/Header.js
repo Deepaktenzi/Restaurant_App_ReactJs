@@ -20,6 +20,7 @@ const Header = () => {
       <nav className="navbar">
         <Link to="/">
           <svg
+            data-testid="logo"
             className="_8pSp-"
             viewBox="0 0 559 825"
             height="49"
@@ -64,7 +65,7 @@ const Header = () => {
           )}
         </span>
 
-        <ul className="menu">
+        <ul className="menu" data-testid="menu-check">
           <li>
             <Link to="/">
               <i className="fa-solid fa-house mr-1.5"></i>
@@ -86,7 +87,7 @@ const Header = () => {
             <Link to="/favourite">
               <i className="fa-solid fa-heart-circle-check mr-1 "></i>
               Favourite
-              <span className="favCount">
+              <span className="favCount" data-testid="cart-check">
                 {card.length != 0 ? card.length : null}
               </span>
             </Link>

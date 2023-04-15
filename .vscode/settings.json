@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/220609cd-20eb-45b3-abf3-7d16afd776e1/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/foodishhub",
+  "appService.deploySubpath": "."
+}
